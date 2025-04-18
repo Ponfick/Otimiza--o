@@ -1,0 +1,90 @@
+{
+    "potential_facilities": [
+        "Centro_1",
+        "Centro_2",
+        "Centro_3",
+        "Centro_4",
+        "Centro_5"
+    ],
+    "customers": [
+        "Cliente_1",
+        "Cliente_2",
+        "Cliente_3",
+        "Cliente_4",
+        "Cliente_5",
+        "Cliente_6",
+        "Cliente_7",
+        "Cliente_8",
+        "Cliente_9",
+        "Cliente_10"
+    ],
+    "installation_costs": {
+        "Centro_1": 2309,
+        "Centro_2": 1228,
+        "Centro_3": 1051,
+        "Centro_4": 2518,
+        "Centro_5": 1563
+    },
+    "service_costs": {
+        "Centro_1": {
+            "Cliente_1": 112,
+            "Cliente_2": 107,
+            "Cliente_3": 85,
+            "Cliente_4": 76,
+            "Cliente_5": 189,
+            "Cliente_6": 72,
+            "Cliente_7": 158,
+            "Cliente_8": 58,
+            "Cliente_9": 57,
+            "Cliente_10": 73
+        },
+        "Centro_2": {
+            "Cliente_1": 105,
+            "Cliente_2": 109,
+            "Cliente_3": 179,
+            "Cliente_4": 56,
+            "Cliente_5": 193,
+            "Cliente_6": 100,
+            "Cliente_7": 189,
+            "Cliente_8": 157,
+            "Cliente_9": 106,
+            "Cliente_10": 164
+        },
+        "Centro_3": {
+            "Cliente_1": 200,
+            "Cliente_2": 121,
+            "Cliente_3": 51,
+            "Cliente_4": 90,
+            "Cliente_5": 158,
+            "Cliente_6": 137,
+            "Cliente_7": 121,
+            "Cliente_8": 89,
+            "Cliente_9": 105,
+            "Cliente_10": 136
+        },
+        "Centro_4": {
+            "Cliente_1": 76,
+            "Cliente_2": 73,
+            "Cliente_3": 147,
+            "Cliente_4": 74,
+            "Cliente_5": 141,
+            "Cliente_6": 138,
+            "Cliente_7": 117,
+            "Cliente_8": 61,
+            "Cliente_9": 167,
+            "Cliente_10": 187
+        },
+        "Centro_5": {
+            "Cliente_1": 81,
+            "Cliente_2": 146,
+            "Cliente_3": 70,
+            "Cliente_4": 191,
+            "Cliente_5": 125,
+            "Cliente_6": 142,
+            "Cliente_7": 197,
+            "Cliente_8": 99,
+            "Cliente_9": 67,
+            "Cliente_10": 61
+        }
+    }
+}
