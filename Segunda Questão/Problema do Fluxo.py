@@ -3,7 +3,7 @@ import math
 import networkx as nx
 import os
 
-JSON_FILE = 'cities.json'
+JSON_FILE = 'Segunda Questão/cities.json'
 SOURCE_CITY_NAME = 'Miami'
 SINK_CITY_NAME = 'Seattle'
 DISTANCE_THRESHOLD = 3.5

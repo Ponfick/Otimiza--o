@@ -6,7 +6,7 @@ import time
 print("--- Resolvedor para Problema de Facilidades (lendo JSON) ---")
 
 
-INPUT_JSON_FILE = 'facility_data.json'
+INPUT_JSON_FILE = 'Segunda Questão/facility_data.json'
 
 
 start_time = time.time()
