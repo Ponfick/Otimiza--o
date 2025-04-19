@@ -107,7 +107,7 @@ def busca_local(n, k, pedidos, container, X, tempo_limite):
 Pedidos = []
 container = []
 
-with open('Primeira Questão\input.txt', 'r') as f:
+with open('Primeiro Exercício\input.txt', 'r') as f:
     n, k = map(int, f.readline().split())
     for _ in range(n):
         Pedidos.append(list(map(int, f.readline().split())))

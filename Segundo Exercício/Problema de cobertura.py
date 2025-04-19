@@ -5,7 +5,7 @@ import os
 import time
 
 
-JSON_FILE = 'Segunda Questão/cities.json'
+JSON_FILE = 'Segundo Exercício\cities.json'
 DISTANCE_THRESHOLD = 2.5
 TOLERANCE = 1e-9
 

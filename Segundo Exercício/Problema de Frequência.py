@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 print("--- Resolvedor para Problema de Frequência (Coloração de Grafo) ---")
 
-INPUT_JSON_FILE = 'Segunda Questão/frequency_data.json'
+INPUT_JSON_FILE = 'Segundo Exercício/frequency_data.json'
 COLORING_STRATEGY = 'largest_first'
 DRAW_GRAPH = True
 
