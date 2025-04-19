@@ -1,7 +1,7 @@
 import time
 import random as rd
 
-def busca_local(max_iteracoes, n, k, pedidos, itens, X):
+def busca_local(n, k, pedidos, container, X, tempo_limite):
     soma_quantidades = [0 for _ in range(k)]
     for i in range(n):
         if X[i] != -1:
@@ -9,11 +9,11 @@ def busca_local(max_iteracoes, n, k, pedidos, itens, X):
 
     violacao = 0
     for v in range(k):
-        if not (itens[v][0] <= soma_quantidades[v] <= itens[v][1]):
+        if not (container[v][0] <= soma_quantidades[v] <= container[v][1]):
             violacao += 1
 
     def intervalo_mudanca(v):
-        return itens[v][0] - soma_quantidades[v], itens[v][1] - soma_quantidades[v]
+        return container[v][0] - soma_quantidades[v], container[v][1] - soma_quantidades[v]
 
     def carga_valida(v):
         min_delta, max_delta = intervalo_mudanca(v)
@@ -32,7 +32,7 @@ def busca_local(max_iteracoes, n, k, pedidos, itens, X):
                   return True
         return False
 
-    def escolher_itens():
+    def escolher_container():
         candidatos = []
         for i in range(k):
             for j in range(i + 1, k):
@@ -75,13 +75,18 @@ def busca_local(max_iteracoes, n, k, pedidos, itens, X):
                     return i, j, mudanca_liquida
         return None
 
-    for _ in range(max_iteracoes):
+    inicio_tempo = time.time()
+
+    while True:
         if violacao == 0:
             break
-        par_itens = escolher_itens()
-        if par_itens is None:
+        if time.time() - inicio_tempo >= tempo_limite:
+            print("Tempo limite atingido. Interrompendo a execução...")
             break
-        v1, v2 = par_itens
+        par_container = escolher_container()
+        if par_container is None:
+            break
+        v1, v2 = par_container
         intervalo_aceit = mudanca_aceitavel(v1, v2)
         troca_escolhida = escolher_pedidos_para_troca(v1, v2, intervalo_aceit)
         if troca_escolhida is not None:
@@ -100,33 +105,35 @@ def busca_local(max_iteracoes, n, k, pedidos, itens, X):
     pedidos.pop()
 
 Pedidos = []
-itens = []
+container = []
 
 with open('Primeira Questão\input.txt', 'r') as f:
     n, k = map(int, f.readline().split())
     for _ in range(n):
         Pedidos.append(list(map(int, f.readline().split())))
     for _ in range(k):
-        itens.append(list(map(int, f.readline().split())))
+        container.append(list(map(int, f.readline().split())))
 
 tempo_inicio = time.time()
 
+tempo_limite = float(input("Digite o tempo limite de execução (em segundos): "))
+
 pedidos_enumerados = sorted(enumerate(Pedidos), key=lambda x: x[1][0], reverse=True)
-itens_enumerados = sorted(enumerate(itens), key=lambda x: x[1][0], reverse=True)
+container_enumerados = sorted(enumerate(container), key=lambda x: x[1][0], reverse=True)
 
 carga_atual = [0] * k
 pedido_atendido = [False] * n
 X = [-1] * n
 
-for indice_itens, itens_atual in itens_enumerados:
+for indice_container, container_atual in container_enumerados:
     for indice_pedido, pedido_atual in pedidos_enumerados:
         if not pedido_atendido[indice_pedido] and \
-           carga_atual[indice_itens] + pedido_atual[0] <= itens_atual[1]:
+           carga_atual[indice_container] + pedido_atual[0] <= container_atual[1]:
             pedido_atendido[indice_pedido] = True
-            carga_atual[indice_itens] += pedido_atual[0]
-            X[indice_pedido] = indice_itens
+            carga_atual[indice_container] += pedido_atual[0]
+            X[indice_pedido] = indice_container
 
-busca_local(20000, n, k, Pedidos, itens, X)
+busca_local(n, k, Pedidos, container, X, tempo_limite)
 
 tempo_fim = time.time()
 
