@@ -21,6 +21,12 @@ Todas as restrições de capacidade são satisfeitas
 Não há mais pares de containers que possam trocar pedidos.
 O tempo limite fornecido pelo usuário é atingido.
 
+O arquivo input.txt
+A primira linha mosta 1000 50, onde 1000 é o numero de pedidos e 50 é o numero de containers
+da linha 2 ate a 1001 são os pedidos
+0.145763 93.0, sendo quantidade 0.145763, lucro 93
+da linha 1002 são os containers
+0.318644 0.688136, sendo a capacidade minima 0.318644, e capacidade maxima 0.688136
 
 Segundo Exercicio
 
