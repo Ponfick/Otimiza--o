@@ -36,18 +36,10 @@ def busca_local(n, k, pedidos, container, X, tempo_limite):
         candidatos = []
         for i in range(k):
             for j in range(i + 1, k):
-                if podem_trocar_original(i, j):
+                if podem_trocar(i, j):
                     candidatos.append((i, j))
         return rd.choice(candidatos) if candidatos else None
 
-    def podem_trocar_original(v1, v2):
-         if carga_valida(v1) and carga_valida(v2):
-             return False
-         m1 = intervalo_mudanca(v1)
-         m2 = intervalo_mudanca(v2)
-         if m1[0]*m2[1]<0 or m1[1]*m2[0]<0:
-            return True
-         return False
 
     def mudanca_aceitavel(v1, v2):
         r1_min, r1_max = intervalo_mudanca(v1)
@@ -110,9 +102,9 @@ container = []
 with open('Primeiro Exercício\input.txt', 'r') as f:
     n, k = map(int, f.readline().split())
     for _ in range(n):
-        Pedidos.append(list(map(int, f.readline().split())))
+        Pedidos.append(list(map(float, f.readline().split())))  
     for _ in range(k):
-        container.append(list(map(int, f.readline().split())))
+        container.append(list(map(float, f.readline().split())))
 
 tempo_inicio = time.time()
 
