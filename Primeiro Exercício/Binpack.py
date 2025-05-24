@@ -142,3 +142,18 @@ print("Pedidos Atendidos:", contagem_pedidos)
 print("Lucro Total:", lucro_total)
 print("Containers Utilizados:", containers_utilizados)
 print("Tempo de Execução (s):", tempo_fim - tempo_inicio)
+
+pedidos_por_container = [[] for _ in range(k)]
+for i in range(n):
+    if X[i] != -1:
+        pedidos_por_container[X[i]].append(i)
+
+with open("Primeiro Exercício\\alocacao.txt", "w") as f:
+    for idx, pedidos in enumerate(pedidos_por_container):
+        f.write(f"Container {idx}:\n")
+        if pedidos:
+            for pedido in pedidos:
+                f.write(f"  Pedido {pedido}\n")
+        else:
+            f.write("  Nenhum pedido alocado\n")
+        f.write("\n")
