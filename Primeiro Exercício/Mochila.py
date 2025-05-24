@@ -136,6 +136,9 @@ for i in range(n):
         contagem_pedidos += 1
         lucro_total += Pedidos[i][1]
 
+containers_utilizados = len(set([X[i] for i in range(n) if X[i] != -1]))
+
 print("Pedidos Atendidos:", contagem_pedidos)
 print("Lucro Total:", lucro_total)
+print("Containers Utilizados:", containers_utilizados)
 print("Tempo de Execução (s):", tempo_fim - tempo_inicio)
